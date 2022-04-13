@@ -1,1 +1,1 @@
-<h1> Project to school </h1>
+<h1> Project to studies </h1>
