@@ -79,7 +79,9 @@
         <div id="layoutSidenav_content">
             <main>
                 <div class="container-fluid">
-                    @include('shared.messages')
+                    @if(session()->has('message'))
+                        @include('shared.messages')
+                    @endif
                     @yield('content')
                 </div>
             </main>

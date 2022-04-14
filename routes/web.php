@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Plant\PlantController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,8 +15,12 @@ use Illuminate\Support\Facades\Route;
 */
 Route::middleware(['auth'])
     ->group(function () {
-        Route::get('/',[\App\Http\Controllers\HomeController::class,'index'])->name(
+        Route::get('/',[\App\Http\Controllers\Plant\PlantController::class,'index'])->name(
             'index');
+        Route::get('/user-collection/',[\App\Http\Controllers\Plant\PlantController::class,'show'])->name(
+            'user.collection');
+
+        Route::resource('plants',PlantController::class);
     });
 
 Auth::routes();

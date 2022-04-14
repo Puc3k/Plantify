@@ -15,8 +15,8 @@ class CraetePlantsTable extends Migration
     {
         Schema::create('plants', function(Blueprint $table){
             $table->id();
-            $table->string('name', 100);
-            $table->string('latinName', 100);
+            $table->text('name');
+            $table->text('latinName');
             $table->enum('position', ['Bezpośrednie światło','Światło jasne, rozproszone','Półcień i cień']);
             $table->string('soil', 40);
             $table->string('watering', 40);

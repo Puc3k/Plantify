@@ -20,7 +20,6 @@
                     <div class="card-body justify-content-around">
                         <form action="{{ route('plants.store') }}" method="post">
                             @csrf
-                            <input name="plant_id" type="hidden" value="{{ $plant->id }} " />
                             <button type="submit" class="btn btn-primary">Dodaj do listy</button>
                         </form>
                     </div>
