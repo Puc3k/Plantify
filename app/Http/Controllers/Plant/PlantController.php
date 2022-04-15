@@ -55,7 +55,7 @@ class PlantController extends Controller
         $userPlants = User::find($userId);
         $plants = $userPlants->plants;
 
-        return view('plants.show',[
+        return view('plants.userPlants',[
             'plants'=> $plants,
         ]);
     }
