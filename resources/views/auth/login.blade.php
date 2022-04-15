@@ -3,6 +3,11 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
+        <div class="col-md-8 d-flex justify-content-center">
+            <img src="/images/Mental-health.png" width="300" height="300" class="img-fluid" />
+        </div>
+    </div>
+    <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">{{ __('Login') }}</div>
@@ -70,4 +75,8 @@
         </div>
     </div>
 </div>
+<footer class="text-center text-lg-start mt-5">
+
+        <a href="https://storyset.com/people" rel="nofollow" style="font-size: 10px;">People illustrations by Storyset</a>
+</footer>
 @endsection

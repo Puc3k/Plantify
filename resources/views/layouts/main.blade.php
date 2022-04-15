@@ -17,9 +17,12 @@
 <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
     <div>
         <a class="navbar-brand" href="{{ route('index') }}">{{ $applicationName }}</a>
+        @auth()
         <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#">
             <i class="fas fa-bars"></i>
         </button>
+
+        @endauth
     </div>
 
     <ul class="navbar-nav ms-auto my-2">

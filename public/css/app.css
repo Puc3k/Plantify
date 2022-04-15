@@ -10231,7 +10231,7 @@ body {
 }
 
 .sb-sidenav-dark {
-  background-color: #3DA35D;
+  background-color: #212529;
   color: rgba(255, 255, 255, 0.5);
 }
 .sb-sidenav-dark .sb-sidenav-menu .sb-sidenav-menu-heading {
@@ -10289,7 +10289,7 @@ body {
 }
 
 #layoutAuthentication {
-  margin-top: 112px;
+  margin-top: 50px;
 }
 
 /*!
