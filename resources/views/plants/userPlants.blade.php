@@ -1,6 +1,5 @@
 @extends('layouts.main')
 @section('content')
-
     <div class="container-fluid">
         <div class="row">
             @foreach($plants ?? [] as $plant)
@@ -17,11 +16,19 @@
                         <li class="list-group-item"><i class="fa-solid fa-hand-holding-droplet"></i> {{ $plant->watering }}</li>
                         <li class="list-group-item"><i class="fa-solid fa-droplet"></i> {{ $plant->humidity }}</li>
                     </ul>
-                    <div class="card-body justify-content-around">
-                        <form action="{{ route('plants.store') }}" method="post">
+                    <div class="card-body ">
+                        <div class="row">
+
+                        <form action="{{ route('plants.store') }}" method="post" class="mr-3 ml-1">
                             @csrf
-                            <button type="submit" class="btn btn-primary">Dodaj do listy</button>
+                            <button type="submit" class="btn btn-primary">Edytuj</button>
                         </form>
+                        <form action="{{ route('plants.destroy', $plant->id) }}" method="post">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-danger">Usuń</button>
+                        </form>
+                        </div>
                     </div>
                 </div>
                 </div>

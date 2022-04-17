@@ -17,7 +17,7 @@ Route::middleware(['auth'])
     ->group(function () {
         Route::get('/',[\App\Http\Controllers\Plant\PlantController::class,'index'])->name(
             'index');
-        Route::get('/user-collection/',[\App\Http\Controllers\Plant\PlantController::class,'show'])->name(
+        Route::get('/user-collection/',[\App\Http\Controllers\Plant\PlantController::class,'userPlants'])->name(
             'user.collection');
 
         Route::resource('plants',PlantController::class);
