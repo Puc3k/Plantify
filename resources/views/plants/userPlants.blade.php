@@ -11,10 +11,9 @@
                             <p>{{ $plant->latinName }}</p>
                     </div>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item"><i class="bi bi-sun-fill"></i> {{ $plant->position }}</li>
-                        <li class="list-group-item"><i class="fas fa-leaf"></i> {{ $plant->soil }}</li>
-                        <li class="list-group-item"><i class="fa-solid fa-hand-holding-droplet"></i> {{ $plant->watering }}</li>
-                        <li class="list-group-item"><i class="fa-solid fa-droplet"></i> {{ $plant->humidity }}</li>
+                        <li class="list-group-item"><i class="bi bi-sun-fill"></i><strong> Stanowisko: </strong> {{ $plant->position }}</li>
+                        <li class="list-group-item"><i class="fas fa-leaf"></i><strong> Gleba: </strong> {{ $plant->soil }}</li>
+                        <li class="list-group-item"><i class="fa-solid fa-hand-holding-droplet"></i><strong> Poldewanie: </strong> {{ $plant->watering }}</li>
                     </ul>
                     <div class="card-body ">
                         <div class="row">

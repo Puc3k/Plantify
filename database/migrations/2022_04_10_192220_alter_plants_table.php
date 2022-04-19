@@ -14,7 +14,7 @@ class AlterPlantsTable extends Migration
     public function up()
     {
         Schema::table('plants', function (Blueprint $table){
-            $table->string('imgUrl',100);
+            $table->string('imgUrl',300);
         });
     }
 

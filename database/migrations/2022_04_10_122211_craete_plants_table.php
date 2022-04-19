@@ -17,10 +17,9 @@ class CraetePlantsTable extends Migration
             $table->id();
             $table->text('name');
             $table->text('latinName');
-            $table->enum('position', ['Bezpośrednie światło','Światło jasne, rozproszone','Półcień i cień']);
-            $table->string('soil', 40);
-            $table->string('watering', 40);
-            $table->string('humidity', 30);
+            $table->string('position', 100);
+            $table->string('soil', 100);
+            $table->string('watering', 100);
     });
     }
 

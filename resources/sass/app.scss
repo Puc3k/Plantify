@@ -31,6 +31,17 @@
 #layoutAuthentication{
     margin-top: 50px;
 }
+.card-img-top
+{
+    height: 259px;
+    object-fit: cover;
+}
+.card-add-form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+}
 
 @import "~@fortawesome/fontawesome-free/scss/regular";
 @import "~@fortawesome/fontawesome-free/scss/solid";

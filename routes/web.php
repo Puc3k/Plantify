@@ -24,4 +24,4 @@ Route::middleware(['auth'])
     });
 
 Auth::routes();
-
+Route::get('/send-notification',[\App\Http\Controllers\WateringNotifficationController::class,'sendNotification']);
