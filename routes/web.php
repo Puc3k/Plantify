@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Plant\PlantController;
+use App\Http\Controllers\User\PlantController as UserPlantsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,6 +22,14 @@ Route::middleware(['auth'])
             'user.collection');
 
         Route::resource('plants',PlantController::class);
+
+        //USER PLANTS
+        Route::delete('user-collection',[UserPlantsController::class, 'remove'])
+        ->name('user.plant.remove');
+
+        Route::get('user-collection',[UserPlantsController::class,'list'])
+        ->name('user.plant.list');
+
     });
 
 Auth::routes();

@@ -74,7 +74,7 @@
                         </div>
                     </div>
                     <div class="sb-sidenav-footer">
-                        Sidenav Footer
+                        Stopka
                     </div>
                 @show
             </nav>

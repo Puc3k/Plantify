@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Notifications\WateringAlert;
-use http\Client\Curl\User;
+//use http\Client\Curl\User;
 use Illuminate\Http\Request;
 
 class WateringNotifficationController extends Controller
@@ -12,10 +13,10 @@ class WateringNotifficationController extends Controller
     {
         $user = User::first();
         $enrollmentData = [
-            'body' =>'Otrzymałeś powiadomienie o podlaniu!',
-            'enrollmentText' =>'Enroll text',
-            'Url'=>url('/'),
-            'thankyou'=>'Dzięki',
+            'body' =>'Przypominamy o podlaniu rośliny: Filodendron. Nie daj czekać Twojej roślinie i zrób to teraz!',
+            'enrollmentText' =>'Podlej',
+            'url'=>url('/'),
+            'thankyou'=>'Wszystkiego zielonego!',
         ];
         $user -> notify(new WateringAlert($enrollmentData));
     }

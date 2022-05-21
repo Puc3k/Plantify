@@ -24,9 +24,18 @@
                         </form>
                         <form action="{{ route('plants.destroy', $plant->id) }}" method="post">
                             @csrf
-                            @method('DELETE')
+                            @method('delete')
                             <button type="submit" class="btn btn-danger">Usuń</button>
                         </form>
+                            <form action="{{ route('user.plant.remove') }}" method="post" class="float-right m-0">
+                                @method('delete')
+                                @csrf
+                                <div class="form-row">
+                                    <input type="hidden" name="plantId" value="{{ $plant->id }}">
+                                    <button type="submit" class="btn btn-primary mb-2">Usuń z listy</button>
+                                </div>
+
+                            </form>
                         </div>
                     </div>
                 </div>
