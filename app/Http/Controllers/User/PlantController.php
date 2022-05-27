@@ -29,8 +29,12 @@ class PlantController extends Controller
             ->route('user.plant.list')
             ->with('message','Roślina prawidłowo usnięta z kolekcji!');
     }
-    public function show()
+    public function show(int $plantId)
     {
 
+        return view('plants.show',[
+            'plant' => Plant::find($plantId)
+
+        ]);
     }
 }

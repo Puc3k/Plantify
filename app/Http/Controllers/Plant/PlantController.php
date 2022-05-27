@@ -65,15 +65,4 @@ class PlantController extends Controller
             'plants'=> $plants,
         ]);
     }
-
-    public function destroy(Request $request, int $plantId)
-    {
-        $plant = UserPlant::where('plant_id',$plantId)
-            ->where('user_id',Auth::id())
-            ->get();
-        //dd($plant);
-        UserPlant::destroy($plant);
-        $request->session()->flash('message','Roślina została usnięta z katalogu.');
-        return redirect('user-collection');
-    }
 }

@@ -30,6 +30,9 @@ Route::middleware(['auth'])
         Route::get('user-collection',[UserPlantsController::class,'list'])
         ->name('user.plant.list');
 
+        Route::get('user-collection/{plantId}',[UserPlantsController::class,'show'])
+            ->name('user.plant.show');
+
     });
 
 Auth::routes();
