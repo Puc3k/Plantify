@@ -3,18 +3,25 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
+use App\Repository\UserRepository;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use App\Models\Plant;
 
 class PlantController extends Controller
 {
+    private UserRepository $userRepository;
+
+    public function __construct(UserRepository $userRepository)
+    {
+     $this->userRepository = $userRepository;
+    }
+
     public function list()
     {
-        $user = Auth::user();
+        $userPlants = $this->userRepository->list();
 
         return view('plants.userPlants',[
-            'plants'=> $user->plants()->paginate()
+            'plants'=> $userPlants
             ]);
 
     }
@@ -22,19 +29,19 @@ class PlantController extends Controller
     {
         $user = Auth::user();
         $plantId = (int)$request['plantId'];
-        $plant = Plant::find($plantId);
+
+        $plant = $this->userRepository->get($plantId);
         $user->removePlant($plant);
 
         return redirect()
             ->route('user.plant.list')
             ->with('message','Roślina prawidłowo usnięta z kolekcji!');
     }
+
     public function show(int $plantId)
     {
-
         return view('plants.show',[
-            'plant' => Plant::find($plantId)
-
+            'plant' => $this->userRepository->get($plantId),
         ]);
     }
 }

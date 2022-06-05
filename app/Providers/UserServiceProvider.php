@@ -2,10 +2,10 @@
 
 namespace App\Providers;
 
-use App\Repository\Eloquent\UserRepository;
+use App\Repository\UserRepository;
 use Illuminate\Support\ServiceProvider;
 
-class PlantServiceProvider extends ServiceProvider
+class UserServiceProvider extends ServiceProvider
 {
     /**
      * Register services.
@@ -15,7 +15,7 @@ class PlantServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->bind(
-            UserRepository::class, \App\Repository\Eloquent\GameRepository::class
+            UserRepository::class, \App\Repository\Eloquent\UserRepository::class
         );
     }
 
