@@ -2,8 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Plant\PlantController;
-use App\Http\Controllers\User\PlantController as UserPlantsController;
-
+use App\Http\Controllers\User\PlantController as NoteUserPlantController;
+use App\Http\Controllers\Note\UserNotesController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,22 +16,28 @@ use App\Http\Controllers\User\PlantController as UserPlantsController;
 */
 Route::middleware(['auth'])
     ->group(function () {
-        Route::get('/',[\App\Http\Controllers\Plant\PlantController::class,'index'])->name(
+        Route::get('/',[NoteUserPlantController::class,'index'])->name(
             'index');
-        Route::get('/user-collection/',[\App\Http\Controllers\Plant\PlantController::class,'userPlants'])->name(
+
+        Route::get('/user-collection/',[NoteUserPlantController::class,'userPlants'])->name(
             'user.collection');
 
-        Route::resource('plants',PlantController::class);
+        Route::resource('plants',NoteUserPlantController::class);
 
         //USER PLANTS
-        Route::delete('user-collection',[UserPlantsController::class, 'remove'])
+        Route::delete('user-collection',[NoteUserPlantController::class, 'remove'])
         ->name('user.plant.remove');
 
-        Route::get('user-collection',[UserPlantsController::class,'list'])
+        Route::get('user-collection',[NoteUserPlantController::class,'list'])
         ->name('user.plant.list');
 
-        Route::get('user-collection/{plantId}',[UserPlantsController::class,'show'])
+        Route::get('user-collection/{plantId}',[NoteUserPlantController::class,'show'])
             ->name('user.plant.show');
+
+
+        //USER NOTES
+        Route::get('user-collection/notes/{plantId}',[NoteUserPlantController::class,'getNotes'])
+            ->name('user.plant.note');
 
     });
 

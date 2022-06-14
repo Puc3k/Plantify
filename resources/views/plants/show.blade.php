@@ -3,13 +3,18 @@
     <div class="row">
         <img class="card-img-top" src="{{ $plant->imgUrl }}" alt="Card image cap">
     </div>
+
+    @foreach($notes as $note)
+        {{$note->title}}
+    @endforeach
+
+
     <div class="row">
         <div class="col-lg-4">
             <div class="card card-margin border-success">
                 <div class="card-header no-border">
                     <h5 class="card-title">{{ $plant->name }}</h5>
                     <h6 class="text-muted d-block"> {{ $plant->latinName }}</h6>
-
                 </div>
                 <div class="card-body pt-0">
                     <ul class="list-group list-group-flush">
@@ -75,7 +80,8 @@
                             <li class="widget-49-meeting-item"><span>Received approval to start wire-frame</span></li>
                         </ol>
                         <div class="widget-49-meeting-action">
-                            <a href="#" class="btn btn-sm btn-flash-border-success">View All</a>
+                            <a href="{{route('user.plant.note',['plantId'=>$plant->id])}}"
+                               class="btn btn-sm btn-flash-border-success">Edytuj</a>
                         </div>
                     </div>
                 </div>

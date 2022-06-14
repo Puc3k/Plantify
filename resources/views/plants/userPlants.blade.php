@@ -2,7 +2,16 @@
 @section('content')
     <div class="container-fluid">
         <div class="row">
+            @if($plants->isEmpty())
+                <div class="">
+                    <div class="container text-secondary">
+                        <h1 class="display-5">Brak twoich roślin w katalogu :(</h1>
+                        <p class="lead">Przejdź do <a href="{{ route('index') }}">katalogu roślin</a> i dodaj jakąś!</p>
+                    </div>
+                </div>
+            @endif
             @foreach($plants ?? [] as $plant)
+
                 <div class="col col-sm-12 col-md-6 col-xl-4">
                 <div class="card justify-content-between border-success mb-3 p-2 w-90">
                     <img class="card-img-top" src="{{ $plant->imgUrl }}" alt="Card image cap">

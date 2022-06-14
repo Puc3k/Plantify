@@ -12,6 +12,11 @@ class Plant extends Model
     ];
     public function users()
     {
-        return $this->belongsToMany(User::class);
+        return $this->belongsToMany(User::class,'note_plant_user')->withPivot('note_id');
+    }
+
+    public function notes()
+    {
+        return $this->hasMany(Note::class);
     }
 }

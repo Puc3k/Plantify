@@ -44,8 +44,14 @@ class User extends Authenticatable
 
     public function plants()
     {
-        return $this->belongsToMany(Plant::class,'plant_user');
+        return $this->belongsToMany(Plant::class,'note_plant_user');
     }
+
+    public function notes()
+    {
+        return $this->hasMany(Note::class);
+    }
+
     public function removePlant(Plant $plant): void
     {
         $this->plants()->detach($plant->id);
