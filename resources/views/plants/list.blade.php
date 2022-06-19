@@ -11,12 +11,13 @@
                         <h5 class="card-title">{{ $plant->name }}</h5>
                             <p>{{ $plant->latinName }}</p>
                     </div>
-                    <ul class="list-group list-group-flush">
+                    <ul class="list-group list-group-flush d-flex justify-content-around">
                         <li class="list-group-item"><i class="bi bi-sun-fill"></i><strong> Stanowisko: </strong> {{ $plant->position }}</li>
                         <li class="list-group-item"><i class="fas fa-leaf"></i><strong> Gleba: </strong> {{ $plant->soil }}</li>
                         <li class="list-group-item"><i class="fa-solid fa-hand-holding-droplet"></i><strong> Poldewanie: </strong> {{ $plant->watering }}</li>
                     </ul>
-                    <div class="card-body justify-content-center align-content-center">
+                    <div class="card-footer justify-content-center align-content-center">
+
                         <form action="{{ route('plants.store') }}" class="card-add-form" method="post">
                             @csrf
                             <input name="plant_id" type="hidden" value="{{ $plant->id }} " />

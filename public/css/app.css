@@ -10054,6 +10054,14 @@ body {
   margin-top: 1rem;
 }
 
+.add-note-card {
+  min-height: 50px;
+}
+
+.h-35 {
+  min-height: 35%;
+}
+
 #layoutAuthentication {
   display: flex;
   flex-direction: column;

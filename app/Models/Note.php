@@ -16,6 +16,7 @@ class Note extends Model
     {
         return $this->belongsTo(Plant::class);
     }
+
     public function users()
     {
         return $this->belongsTo(User::class);

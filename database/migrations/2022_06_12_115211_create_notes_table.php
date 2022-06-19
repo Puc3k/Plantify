@@ -17,7 +17,7 @@ class CreateNotesTable extends Migration
             $table->id();
             $table->integer('user_id')->index();
             $table->text('title');
-            $table->text('decsription');
+            $table->text('description');
             $table->date('date');
             $table->timestamps();
         });

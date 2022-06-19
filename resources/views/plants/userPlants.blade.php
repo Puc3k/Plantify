@@ -12,7 +12,7 @@
             @endif
             @foreach($plants ?? [] as $plant)
 
-                <div class="col col-sm-12 col-md-6 col-xl-4">
+                <div class="card-group col col-sm-12 col-md-6 col-xl-4">
                 <div class="card justify-content-between border-success mb-3 p-2 w-90">
                     <img class="card-img-top" src="{{ $plant->imgUrl }}" alt="Card image cap">
                     <div class="card-body">
@@ -24,10 +24,10 @@
                         <li class="list-group-item"><i class="fas fa-leaf"></i><strong> Gleba: </strong> {{ $plant->soil }}</li>
                         <li class="list-group-item"><i class="fa-solid fa-hand-holding-droplet"></i><strong> Poldewanie: </strong> {{ $plant->watering }}</li>
                     </ul>
-                    <div class="card-body ">
+                    <div class="card-footer d-flex justify-content-center">
                         <div class="row">
-                        <a href="{{ route('user.plant.show',['plantId'=>$plant->id]) }}" class="btn btn-primary mr-3 ml-1 mb-2">
-                            Dodaj notatkę
+                        <a href="{{ route('user.plant.show',['plantId' => $plant->id]) }}" class="btn btn-primary mr-3 ml-1 mb-2">
+                            Szczegóły
                         </a>
 
                             <form action="{{ route('user.plant.remove') }}" method="post" class="float-right m-0">

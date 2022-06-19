@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Plant\PlantController;
 use App\Http\Controllers\User\PlantController as NoteUserPlantController;
-use App\Http\Controllers\Note\UserNotesController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -38,6 +38,10 @@ Route::middleware(['auth'])
         //USER NOTES
         Route::get('user-collection/notes/{plantId}',[NoteUserPlantController::class,'getNotes'])
             ->name('user.plant.note');
+        Route::get('user-collection/notes/{plantId}',[NoteUserPlantController::class,'edit'])
+            ->name('user.note.edit');
+        Route::post('update',[NoteUserPlantController::class,'update'])
+            ->name('user.note.update');
 
     });
 
