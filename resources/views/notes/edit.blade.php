@@ -2,18 +2,18 @@
 
 @section('content')
     <div class="card mt-3">
-        <h5 class="card-header">Notatka</h5>
+        <h5 class="card-header">Edycja notatki</h5>
         <div class="card-body">
 
-            @if ($errors->any())
-                <div class="alert alert-danger">
-                    <ul>
-                        @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                </div>
-            @endif
+{{--            @if ($errors->any())--}}
+{{--                <div class="alert alert-danger">--}}
+{{--                    <ul>--}}
+{{--                        @foreach ($errors->all() as $error)--}}
+{{--                            <li>{{ $error }}</li>--}}
+{{--                        @endforeach--}}
+{{--                    </ul>--}}
+{{--                </div>--}}
+{{--            @endif--}}
 
             <form action="{{ route('user.note.update') }}" method="post" enctype="multipart/form-data">
             @csrf
@@ -28,9 +28,10 @@
                         class="form-control @error('title') is-invalid @enderror"
                         id="title"
                         name="title"
+                        value="@if($note->title) {{ old('title', $note->title) }} @endif"
                         placeholder="Tytuł notatki"
                     />
-                    @error('name')
+                    @error('title')
                     <div class="invalid-feedback d-block">{{ $message }}</div>
                     @enderror
                 </div>
@@ -42,7 +43,8 @@
                         name="description"
                         rows="3"
                         placeholder="Treść notatki..."
-                    ></textarea>
+                    >@if(old('description',$note->description)!==null){{ old('description',$note->description)}}@endif</textarea>
+
                     @error('description')
                     <div class="invalid-feedback d-block">{{ $message }}</div>
                     @enderror
@@ -51,12 +53,11 @@
                     <label for="date">Data</label>
                     <input
                         type="date"
-                        class="form-control @error('phone') is-invalid @enderror"
+                        class="form-control @error('date') is-invalid @enderror"
                         id="date"
                         name="date"
                         min="{{ $currentDate }}"
-                        value="{{ $currentDate }}"
-                    >
+                        value="@if($note->date!==null){{ old('date,',date('Y-m-d', strtotime($note->date))) }}@else{{ $currentDate }}@endif">
                     @error('date')
                     <div class="invalid-feedback d-block">{{ $message }}</div>
                     @enderror

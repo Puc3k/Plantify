@@ -12,9 +12,9 @@
             @endif
             @foreach($plants ?? [] as $plant)
 
-                <div class="card-group col col-sm-12 col-md-6 col-xl-4">
+                <div class="card-group col col-sm-12 col-md-6 col-lg-4 col-xl-3">
                 <div class="card justify-content-between border-success mb-3 p-2 w-90">
-                    <img class="card-img-top" src="{{ $plant->imgUrl }}" alt="Card image cap">
+                    <img class="card-img-top" src="{{ $plant->imgUrl }}" alt="{{ $plant->name }} - Moja kolekcja Plantify">
                     <div class="card-body">
                         <h5 class="card-title">{{ $plant->name }}</h5>
                             <p>{{ $plant->latinName }}</p>

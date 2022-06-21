@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Plant\PlantController;
 use App\Http\Controllers\User\PlantController as NoteUserPlantController;
+use App\Http\Controllers\User\UserProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,13 +17,24 @@ use App\Http\Controllers\User\PlantController as NoteUserPlantController;
 */
 Route::middleware(['auth'])
     ->group(function () {
-        Route::get('/',[NoteUserPlantController::class,'index'])->name(
+        Route::get('/',[PlantController::class,'index'])->name(
             'index');
 
         Route::get('/user-collection/',[NoteUserPlantController::class,'userPlants'])->name(
             'user.collection');
 
         Route::resource('plants',NoteUserPlantController::class);
+
+        //USER PROFILE
+        Route::group(['prefix'=> 'user','as'=>'user.','namespace'=>'User'], function() {
+            Route::get('profile', [UserProfileController::class, 'profile'])
+                ->name('profile');
+            Route::get('edit', [UserProfileController::class, 'edit'])
+                ->name('edit');
+            Route::post('update', [UserProfileController::class, 'update'])
+                ->name('update');
+        });
+
 
         //USER PLANTS
         Route::delete('user-collection',[NoteUserPlantController::class, 'remove'])
@@ -40,9 +52,12 @@ Route::middleware(['auth'])
             ->name('user.plant.note');
         Route::get('user-collection/notes/{plantId}',[NoteUserPlantController::class,'edit'])
             ->name('user.note.edit');
+        Route::get('user-collection/notes/create/{plantId}',[NoteUserPlantController::class,'create'])
+            ->name('user.note.create');
         Route::post('update',[NoteUserPlantController::class,'update'])
             ->name('user.note.update');
-
+        Route::delete('user-collection/notes/',[NoteUserPlantController::class,'removeNote'])
+            ->name('user.note.remove');
     });
 
 Auth::routes();

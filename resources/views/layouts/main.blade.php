@@ -74,7 +74,7 @@
                         </div>
                     </div>
                     <div class="sb-sidenav-footer">
-                        Stopka
+                        Plantify
                     </div>
                 @show
             </nav>
@@ -89,7 +89,7 @@
             <footer class="py-4 bg-light mt-auto">
                 <div class="container-fluid">
                     <div class="d-flex align-items-center justify-content-between small">
-                        <div class="text-muted">Fluid footer</div>
+                        <div class="text-muted"></div>
                         <div>
                         </div>
                     </div>

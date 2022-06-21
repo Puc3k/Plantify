@@ -56,4 +56,10 @@ class User extends Authenticatable
     {
         $this->plants()->detach($plant->id);
     }
+
+    public function removeNote(int $noteId): void
+    {
+        $note = Note::where('id', $noteId)->first();
+        $note->delete();
+    }
 }

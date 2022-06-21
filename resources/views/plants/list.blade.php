@@ -3,10 +3,21 @@
 
     <div class="container-fluid">
         <div class="row">
+        <form action="" class="form-inline">
+            <div class="form-row">
+                <label for="phrase" class="my-1 mr-2">Szukana fraza:</label>
+                <div class="col">
+                    <input type="text" class="form-control" name="phrase" placeholder="" value="{{ $phrase ?? '' }}">
+                </div>
+                <button type="submit" class="btn btn-primary mb-1">Wyszukaj</button>
+            </div>
+        </form>
+        </div>
+        <div class="row">
             @foreach($plants ?? [] as $plant)
-                <div class="card-group col col-sm-12 col-md-6 col-xl-4">
+                <div class="card-group col col-sm-12 col-md-6 col-lg-4 col-xl-3">
                 <div class="card justify-content-between border-success mb-3 p-2 w-90">
-                    <img class="card-img-top" src="{{ $plant->imgUrl }}" alt="Card image cap">
+                    <img class="card-img-top" src="{{ $plant->imgUrl }}" alt="{{ $plant->name }} - Plantify">
                     <div class="card-body">
                         <h5 class="card-title">{{ $plant->name }}</h5>
                             <p>{{ $plant->latinName }}</p>

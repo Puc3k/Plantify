@@ -12,6 +12,9 @@ class Note extends Model
         'date',
     ];
 
+    protected $dates = ['date'];
+
+
     public function plants()
     {
         return $this->belongsTo(Plant::class);

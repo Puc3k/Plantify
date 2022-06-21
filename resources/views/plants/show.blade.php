@@ -7,8 +7,8 @@
         <div class="col-lg-4">
             <div class="card card-margin border-success">
                 <div class="card-header no-border">
-                    <h5 class="card-title">{{ $plant->name }}</h5>
-                    <h6 class="text-muted d-block"> {{ $plant->latinName }}</h6>
+                    <h5 class="card-title">{{ $plant->name }} </h5>
+                    <h6 class="text-muted d-block pl-1">{{ $plant->latinName }}</h6>
                 </div>
                 <div class="card-body pt-0">
                     <ul class="list-group list-group-flush">
@@ -24,14 +24,15 @@
         </div>
 
         @if($notes->isEmpty())
-            <div class="col-lg-4 col-md-12 d-">
-                <div class="card card-margin  add-note-card bg-success text-white">
-                    <div class="card-header no-border flex-grow-1  text-center align-content-center justify-content-center">
+            <div class="col-lg-4 col-md-12">
+                <div class="card card-margin add-note-card bg-success text-white h-100">
+                    <div
+                        class="card-header no-border flex-grow-1  text-center align-content-center justify-content-center">
                         <h3 class="card-title">Dodaj notatkę</h3>
                     </div>
                     <div class="card-body pt-0 fa-3x align-self-center">
-                        <a href="{{ route('user.note.edit',['plantId'=>$plant->id]) }}" class="btn btn-light">
-                        <i class="fa-solid fa-plus"></i></a>
+                        <a href="{{ route('user.note.create',['plantId'=>$plant->id]) }}" class="btn btn-light"><i
+                                class="fa-solid fa-plus"></i></a>
                     </div>
                 </div>
             </div>
@@ -39,20 +40,18 @@
 
         @foreach($notes ?? [] as $note)
             <div class="col-lg-4">
-                <div class="card card-margin">
-                    <div class="card-header no-border">
-                        <h5 class="card-title">{{$note->title}}</h5>
-                    </div>
-                    <div class="card-body pt-0">
+                <div class="card card-margin h-100">
+                    <div class="card-body mt-4 pt-0">
                         <div class="widget-49">
                             <div class="widget-49-title-wrapper">
                                 <div class="widget-49-date-warning">
-                                    <span class="widget-49-date-day">13</span>
-                                    <span class="widget-49-date-month">apr</span>
+                                    <span class="widget-49-date-day">{{ date('d', strtotime($note->date)) }}</span>
+                                    <span class="widget-49-date-month">{{ date('M', strtotime($note->date)) }}</span>
                                 </div>
                                 <div class="widget-49-meeting-info">
-                                    <span class="widget-49-pro-title">{{$note->email}}</span>
-                                    <span class="widget-49-meeting-time">{{$note->date}}</span>
+                                    <span class="widget-49-pro-title">  <h5
+                                            class="card-title">{{$note->title}}</h5></span>
+                                    <span class="widget-49-meeting-time"></span>
                                 </div>
                             </div>
                             <div class="widget-49-meeting-points mt-4">
@@ -63,17 +62,18 @@
                             </div>
                         </div>
                     </div>
-                    <div class="card-footer">
-                        <a href="{{ route('user.plant.show',['plantId' => $plant->id]) }}" class="btn btn-primary mr-3 ml-1 mb-2">
-                            Szczegóły
+                    <div class="card-footer d-flex justify-content-center">
+                        <a href="{{ route('user.note.edit',['plantId'=>$plant->id]) }}"
+                           class="btn btn-primary mr-3 ml-1 mb-2">
+                            Edytuj
                         </a>
 
-                        <form action="{{ route('user.plant.remove') }}" method="post" class="float-right m-0">
+                        <form action="{{ route('user.note.remove') }}" method="post" class="float-right m-0">
                             @method('delete')
                             @csrf
                             <div class="form-row">
                                 <input type="hidden" name="plantId" value="{{ $plant->id }}">
-                                <button type="submit" class="btn btn-danger mb-2">Usuń z listy</button>
+                                <button type="submit" class="btn btn-danger mb-2">Usuń</button>
                             </div>
 
                         </form>
@@ -81,5 +81,5 @@
                     </div>
                 </div>
             </div>
-        @endforeach
+    @endforeach
 @endsection

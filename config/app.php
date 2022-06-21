@@ -176,6 +176,7 @@ return [
         App\Providers\RouteServiceProvider::class,
         \App\Providers\UserServiceProvider::class,
         \App\Providers\UserNotesProvider::class,
+        \App\Providers\PlantServiceProvider::class,
 
     ],
 
