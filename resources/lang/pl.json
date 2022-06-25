@@ -5,7 +5,11 @@
     "Password": "Hasło",
     "Email Address": "E-mail",
     "Register": "Zarejestruj",
-    "Login-panel": "Logowanie"
+    "Login-panel": "Logowanie",
+    "Reset Password": "Resetowanie hasła",
+    "Confirm Password": "Potwórz hasło",
+    "Send Password Reset Link": "Resetuj hasło",
+    "Name": "Nazwa"
 
 
 }

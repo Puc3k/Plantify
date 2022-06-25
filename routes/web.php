@@ -17,16 +17,11 @@ use App\Http\Controllers\User\UserProfileController;
 */
 Route::middleware(['auth'])
     ->group(function () {
-        Route::get('/',[PlantController::class,'index'])->name(
+        Route::get('/', [PlantController::class, 'index'])->name(
             'index');
 
-        Route::get('/user-collection/',[NoteUserPlantController::class,'userPlants'])->name(
-            'user.collection');
-
-        Route::resource('plants',NoteUserPlantController::class);
-
         //USER PROFILE
-        Route::group(['prefix'=> 'user','as'=>'user.','namespace'=>'User'], function() {
+        Route::group(['prefix' => 'user', 'as' => 'user.', 'namespace' => 'User'], function () {
             Route::get('profile', [UserProfileController::class, 'profile'])
                 ->name('profile');
             Route::get('edit', [UserProfileController::class, 'edit'])
@@ -35,30 +30,33 @@ Route::middleware(['auth'])
                 ->name('update');
         });
 
-
         //USER PLANTS
-        Route::delete('user-collection',[NoteUserPlantController::class, 'remove'])
-        ->name('user.plant.remove');
+        Route::get('/user-collection/', [NoteUserPlantController::class, 'userPlants'])->name(
+            'user.collection');
 
-        Route::get('user-collection',[NoteUserPlantController::class,'list'])
-        ->name('user.plant.list');
+        Route::delete('user-collection', [NoteUserPlantController::class, 'remove'])
+            ->name('user.plant.remove');
 
-        Route::get('user-collection/{plantId}',[NoteUserPlantController::class,'show'])
+        Route::get('user-collection', [NoteUserPlantController::class, 'list'])
+            ->name('user.plant.list');
+
+        Route::get('user-collection/{plantId}', [NoteUserPlantController::class, 'show'])
             ->name('user.plant.show');
+
+        Route::resource('plants', NoteUserPlantController::class);
 
 
         //USER NOTES
-        Route::get('user-collection/notes/{plantId}',[NoteUserPlantController::class,'getNotes'])
+        Route::get('user-collection/notes/{plantId}', [NoteUserPlantController::class, 'getNotes'])
             ->name('user.plant.note');
-        Route::get('user-collection/notes/{plantId}',[NoteUserPlantController::class,'edit'])
+        Route::get('user-collection/notes/{plantId}', [NoteUserPlantController::class, 'edit'])
             ->name('user.note.edit');
-        Route::get('user-collection/notes/create/{plantId}',[NoteUserPlantController::class,'create'])
+        Route::get('user-collection/notes/create/{plantId}', [NoteUserPlantController::class, 'create'])
             ->name('user.note.create');
-        Route::post('update',[NoteUserPlantController::class,'update'])
+        Route::post('update', [NoteUserPlantController::class, 'update'])
             ->name('user.note.update');
-        Route::delete('user-collection/notes/',[NoteUserPlantController::class,'removeNote'])
+        Route::delete('user-collection/notes/', [NoteUserPlantController::class, 'removeNote'])
             ->name('user.note.remove');
     });
 
 Auth::routes();
-Route::get('/send-notification',[\App\Http\Controllers\WateringNotifficationController::class,'sendNotification']);

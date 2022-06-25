@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Notifications\WateringAlert;
-use Illuminate\Http\Request;
 
 class WateringNotifficationController extends Controller
 {

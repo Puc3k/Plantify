@@ -5,14 +5,12 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\UpdateUserNotes;
 use App\Models\NotePlantUser;
-use App\Models\Plant;
 use App\Repository\UserRepository;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use Illuminate\Support\Carbon;
 use App\Http\Requests\RemoveNoteFromUserList;
-use Illuminate\View\View;
 
 class PlantController extends Controller
 {

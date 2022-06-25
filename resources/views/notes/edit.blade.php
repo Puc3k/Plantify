@@ -4,17 +4,6 @@
     <div class="card mt-3">
         <h5 class="card-header">Edycja notatki</h5>
         <div class="card-body">
-
-{{--            @if ($errors->any())--}}
-{{--                <div class="alert alert-danger">--}}
-{{--                    <ul>--}}
-{{--                        @foreach ($errors->all() as $error)--}}
-{{--                            <li>{{ $error }}</li>--}}
-{{--                        @endforeach--}}
-{{--                    </ul>--}}
-{{--                </div>--}}
-{{--            @endif--}}
-
             <form action="{{ route('user.note.update') }}" method="post" enctype="multipart/form-data">
             @csrf
             <!-- X-XSRF-TOKEN -->

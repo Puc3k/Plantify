@@ -39,7 +39,7 @@ class UpdateUserProfile extends FormRequest
                 new AlphaSpaces(),
             ],
             'phone'=>[
-                'min:6'
+                'min:6|max:11'
             ],
             'avatar'=>[
                 'nullable',
@@ -53,7 +53,11 @@ class UpdateUserProfile extends FormRequest
     {
         return [
             'email.unique' => 'Podany adres e-mail jest zajęty.',
-            'name.max' => 'Maksymalna ilość znaków to: max'
+            'name.max' => 'Maksymalna ilość znaków to: max',
+            'name.min' => 'Maksymalna ilość znaków to: min',
+            'phone.max' => 'Numer telefonu nie jest prawidłowy',
+            'phone.min' => 'Numer telefonu nie jest prawidłowy',
+            'avatar.image' => 'Przesłany plik musi być obrazem!',
         ];
     }
 }

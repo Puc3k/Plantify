@@ -8,7 +8,6 @@ use App\Models\NotePlantUser;
 use App\Repository\UserRepository as UserRepositoryInterface;
 use App\Models\Plant;
 use Illuminate\Support\Facades\Auth;
-use Ramsey\Collection\Collection;
 use App\Models\User;
 use App\Models\Note;
 

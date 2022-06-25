@@ -14,10 +14,9 @@ class CreateNotePlantUser extends Migration
     public function up()
     {
         Schema::create('note_plant_user', function (Blueprint $table) {
-            $table->integer('note_id')->index()->nullable();
-            $table->integer('plant_id')->index();
-            $table->integer('user_id')->index();
-            $table->timestamps();
+            $table->unsignedBigInteger('note_id')->index()->nullable();
+            $table->unsignedBigInteger('plant_id')->index();
+            $table->unsignedBigInteger('user_id')->index();
 
         });
     }

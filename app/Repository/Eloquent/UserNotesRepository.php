@@ -7,7 +7,6 @@ namespace App\Repository\Eloquent;
 use App\Models\User;
 use App\Repository\UserNotesRepository as UserNotesInterface;
 use App\Models\Plant;
-use Illuminate\Support\Collection;
 
 
 class UserNotesRepository implements UserNotesInterface
